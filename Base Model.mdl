@@ -1,0 +1,789 @@
+{UTF-8}
+"Expenses of running platform (new data centres, infrastructure etc.)"=
+	Expenses of running platform(Monthly active Facebook users*Technology)*Monthly active Facebook users\
+		*Technology
+	~	
+	~		|
+
+"Investment in other products/services"=
+	(Revenues-Expenses)*0.95
+	~	
+	~		|
+
+Cash= INTEG (
+	Revenues-Expenses-"Investment in other products/services",
+		9.109e+09)
+	~	dollars
+	~		|
+
+Expenses=
+	Marketing expenses+"Other expenses (administrative, taxes etc.)"+"R&D expenses"+Wages to technical staff\
+		+"Expenses of running platform (new data centres, infrastructure etc.)"
+	~	dollars
+	~		|
+
+New advertisers=
+	Advertising services
+	~	
+	~		|
+
+Advertising services=
+	Adoption from advertising effectiveness+Adoption from number of Facebook users+Adoption from price
+	~	
+	~		|
+
+Preference for private vs public social media platforms=
+	1
+	~	
+	~	1 = current preferences, >1 = private media more popular relative to \
+		public, <1 = private less popular
+	|
+
+Expenses of running platform(
+	[(100,0)-(1e+12,0.1)],(5e+10,0.05),(1e+11,0.04),(5e+11,0.035),(1e+12,0.025))
+	~	
+	~		|
+
+"R&D expenses"=
+	Revenues*"R&D expenses (fraction of revenues)"
+	~	
+	~		|
+
+Adoption from price=
+	0.05*Potential advertisers*(1-"Cost per click (CPC)")
+	~	
+	~		|
+
+Impressions per user per year=
+	4000
+	~	
+	~		|
+
+Change in number of potential Facebook users=
+	(Births-Deaths)*Internet penetration
+	~	
+	~		|
+
+"Algorithms (average CTR)"= INTEG (
+	Increase in CTR,
+		0.009)
+	~	
+	~		|
+
+Total payments revenue=
+	Monthly active Facebook users*Average spend per user*Fraction of transaction received by Facebook
+	~	
+	~		|
+
+Increase in CTR=
+	Technical staff*Technical capabilities
+	~	
+	~		|
+
+Decrease in reputation=
+	(1-Trust to social media)*Reputation*0.3
+	~	
+	~		|
+
+New users=
+	(Adoption from advertising+Adoption from word of mouth)*Effect of number of platforms\
+		("Number of platforms (competition for users)"
+	)
+	~	
+	~		|
+
+Technical capabilities=
+	1e-09
+	~	
+	~		|
+
+Reputation= INTEG (
+	Increase in reputation-Decrease in reputation,
+		480)
+	~	
+	~		|
+
+Protecting user privacy=
+	Technology*Effect of technology on reputation(Technology)
+	~	
+	~		|
+
+Net hiring rate=
+	Tehnical staff hiring budget/Average wage level
+	~	
+	~		|
+
+Trust to social media=
+	0.41
+	~	
+	~		|
+
+Tehnical staff hiring budget=
+	Revenues*"Technical staff hiring budget (fraction of revenues)"
+	~	
+	~		|
+
+Increase in reputation=
+	"Public Relatins (change in reputation from marketing)"+Protecting user privacy
+	~	
+	~		|
+
+Leaving=
+	Technical staff/Average tenure
+	~	
+	~		|
+
+Average wage level=
+	100000
+	~	dollars
+	~		|
+
+"Technical staff hiring budget (fraction of revenues)"=
+	0.015
+	~	
+	~		|
+
+"New/improved technology"=
+	Productivity of technical staff*"R&D expenses"*Technical staff
+	~	
+	~		|
+
+Effect of technology on reputation(
+	[(0,0)-(3200,0.9)],(50,0.2),(100,0.13),(200,0.08),(400,0.06),(800,0.03),(1600,0.02),\
+		(3200,0.01))
+	~	
+	~		|
+
+Productivity of technical staff=
+	Effect of number of staff on productivity(Technical staff)
+	~	
+	~		|
+
+Average tenure=
+	1.5
+	~	
+	~		|
+
+Effect of number of staff on productivity(
+	[(500,0)-(100000,6e-12)],(1000,5e-12),(2000,4e-12),(4000,3e-12),(7500,2e-12),(12000,\
+		1.3e-12),(20000,5e-13),(30000,1.5e-13),(40000,3e-14),(50000,2e-14),(80000,7.5e-15))
+	~	
+	~		|
+
+Marketing expenses=
+	Revenues*"Marketing expenses (fraction of revenues)"
+	~	
+	~		|
+
+"Public Relatins (change in reputation from marketing)"=
+	"Marketing expenses (fraction of revenues)"*Effect of marketing on reputation
+	~	
+	~		|
+
+Adoption from advertising=
+	Potential Facebook users*Marketing expenses*"Marketing & Sales (advertising effectiveness per dollar)"
+	~	
+	~		|
+
+"Depreciation/ obssolesence"=
+	Technology/"Technological change (average lifetime)"
+	~	
+	~		|
+
+Effect of marketing on reputation=
+	150
+	~	
+	~		|
+
+"Popularity of social media (social media penetration)"=
+	0.49
+	~	
+	~	Fraction social media users of total world population
+	|
+
+Wages to technical staff=
+	Technical staff*Average wage level
+	~	
+	~		|
+
+Effect of reputation on loss of users(
+	[(0,0)-(1000,1)],(100,1),(250,0.75),(480,0.55),(700,0.45),(1000,0.4))
+	~	
+	~		|
+
+"R&D expenses (fraction of revenues)"=
+	0.18
+	~	
+	~		|
+
+Loss of users=
+	Monthly active Facebook users*User leaving rate*Preference for private vs public social media platforms\
+		*(1-"Popularity of social media (social media penetration)"
+	)*Effect of reputation on loss of users(Reputation)
+	~	
+	~		|
+
+Technology= INTEG (
+	"New/improved technology"-"Depreciation/ obssolesence",
+		50)
+	~	
+	~		|
+
+"Technological change (average lifetime)"=
+	1.2
+	~	
+	~		|
+
+Technical staff= INTEG (
+	Net hiring rate-Leaving,
+		4694)
+	~	
+	~		|
+
+Average spend per user=
+	1.2
+	~	dollars
+	~		|
+
+Monthly active Facebook users= INTEG (
+	INTEGER(New users-Loss of users),
+		1.712e+09)
+	~	users
+	~		|
+
+"Adoption fraction (of users)"=
+	0.02
+	~	
+	~		|
+
+Adoption from advertising effectiveness=
+	Potential advertisers*Effect of relative CTR on adoption(Relative CTR)
+	~	
+	~		|
+
+Adoption from number of Facebook users=
+	Potential advertisers*Effect of number of users on adoption(Monthly active Facebook users\
+		)
+	~	
+	~		|
+
+Adoption from word of mouth=
+	Monthly active Facebook users*"Adoption fraction (of users)"*"Contact rate (of users)"\
+		*(Potential Facebook users/Total population
+	)
+	~	
+	~		|
+
+Advertiser leaving rate=
+	0.35
+	~	
+	~		|
+
+"Marketing & Sales (advertising effectiveness per dollar)"=
+	1.5e-12
+	~	users/dollar
+	~		|
+
+Births=
+	Total population*Birth rate
+	~	
+	~		|
+
+Carrying capacity=
+	1e+10
+	~	people
+	~		|
+
+Change in number of business users=
+	(New users-Loss of users)*Fraction business users
+	~	users
+	~		|
+
+"Contact rate (of users)"=
+	30
+	~	
+	~		|
+
+"Cost per click (CPC)"=
+	Effect of impressions vs advertisers on price(Impressions vs advertisers)
+	~	dollar
+	~	Range 0.5-1.8, depends on competition, bids etc.
+	|
+
+Crowding=
+	Total population/Carrying capacity
+	~	
+	~		|
+
+Deaths=
+	Total population/Life expectancy*Effect of crowding on deaths lookup(Crowding)
+	~	
+	~		|
+
+Effect of crowding on deaths lookup(
+	[(0,0)-(2.1,10)],(0,0.05),(0.4,0.1),(0.6,0.2),(0.8,0.51),(1,1.05),(1.2,1.75),(1.4,2.55\
+		),(1.6,3.7),(1.75,5),(1.9,6.75),(2,8.5))
+	~	
+	~		|
+
+Effect of impressions vs advertisers on price(
+	[(90000,0)-(5e+06,2)],(90000,0.9),(350000,0.7),(800000,0.6),(1.5e+06,0.5),(2e+06,0.45\
+		),(3e+06,0.4),(5e+06,0.35))
+	~	
+	~		|
+
+Effect of number of platforms(
+	[(5,0)-(500,1)],(5,1),(10,0.75),(25,0.5),(50,0.25),(100,0.1),(500,0.1))
+	~	
+	~		|
+
+Effect of number of users on adoption(
+	[(0,0)-(1e+10,0.02)],(0,0),(4e+08,0.003),(1e+09,0.0045),(2e+09,0.005),(3e+09,0.0053)\
+		,(4e+09,0.0055),(7e+09,0.0057),(9e+09,0.0059),(1e+10,0.006))
+	~	
+	~		|
+
+Effect of relative CTR on adoption(
+	[(0.2,0)-(3,0.3)],(0.2,0.005),(0.45,0.01),(0.6,0.017),(0.85,0.03),(1.17,0.06),(1.5,0.1\
+		),(1.8,0.15),(2,0.2))
+	~	
+	~		|
+
+Fraction business users=
+	0.035
+	~	
+	~		|
+
+Fraction of transaction received by Facebook=
+	0.3
+	~	
+	~		|
+
+Impressions vs advertisers=
+	"Total impressions (advertisements viewed)"/Advertisers
+	~	
+	~		|
+
+"Industry CTR (impact of technology on social media)"=
+	0.02
+	~	
+	~		|
+
+Internet penetration=
+	0.5
+	~	
+	~		|
+
+Life expectancy=
+	72
+	~	
+	~		|
+
+Loss of business users=
+	Advertisers*Advertiser leaving rate
+	~	
+	~		|
+
+"Marketing expenses (fraction of revenues)"=
+	0.2
+	~	
+	~		|
+
+Advertisers= INTEG (
+	INTEGER(New advertisers-Loss of business users),
+		4e+06)
+	~	advertisers
+	~		|
+
+"Number of platforms (competition for users)"=
+	5
+	~	
+	~		|
+
+"Other expenses (administrative, taxes etc.)"=
+	Revenues*"Other expenses (fraction of revenues)"
+	~	
+	~		|
+
+"Other expenses (fraction of revenues)"=
+	0.2
+	~	
+	~		|
+
+Birth rate=
+	0.02
+	~	
+	~		|
+
+Potential advertisers= INTEG (
+	Change in number of business users+Loss of business users-New advertisers,
+		5e+07)
+	~	users
+	~	Number of business users (Pages)
+	|
+
+Potential Facebook users= INTEG (
+	Change in number of potential Facebook users+Loss of users-New users,
+		2.1e+09)
+	~	users
+	~	3700000000-800000 blocked Chinese users
+	|
+
+User leaving rate=
+	0.2
+	~	
+	~		|
+
+Relative CTR=
+	"Algorithms (average CTR)"/"Industry CTR (impact of technology on social media)"
+	~	
+	~		|
+
+Revenues=
+	Total advertising revenue+Total payments revenue
+	~	dollars
+	~		|
+
+Total advertising revenue=
+	"Cost per click (CPC)"*Total number of clicks
+	~	
+	~		|
+
+"Total impressions (advertisements viewed)"=
+	Monthly active Facebook users*Impressions per user per year
+	~	
+	~		|
+
+Total number of clicks=
+	"Total impressions (advertisements viewed)"*"Algorithms (average CTR)"
+	~	
+	~		|
+
+Total population= INTEG (
+	Births-Deaths,
+		7.4e+09)
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 2029
+	~	Year
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 2016
+	~	Year
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP
+	~	Year [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Year [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,40,0
+12,1,48,655,238,10,8,0,3,0,0,-1,0,0,0
+1,2,3,1,100,0,0,22,0,0,0,-1--1--1,,1|(691,238)|
+11,3,48,723,238,6,8,34,3,0,0,1,0,0,0
+10,4,Births,723,265,20,11,40,3,0,0,-1,0,0,0
+10,5,Potential Facebook users,1085,-60,61,26,3,131,0,0,0,0,0,0
+12,6,48,850,-56,10,8,0,3,0,0,-1,0,0,0
+1,7,9,5,4,0,0,22,0,0,0,-1--1--1,,1|(970,-53)|
+1,8,9,6,100,0,0,22,0,0,0,-1--1--1,,1|(882,-53)|
+11,9,48,911,-53,6,8,34,3,0,0,1,0,0,0
+10,10,Change in number of potential Facebook users,911,-23,80,19,40,131,0,0,-1,0,0,0
+10,11,Monthly active Facebook users,1489,-59,53,25,3,131,0,0,0,0,0,0
+1,12,14,11,4,0,0,22,0,0,0,-1--1--1,,1|(1361,-64)|
+1,13,14,5,100,0,0,22,0,0,0,-1--1--1,,1|(1210,-64)|
+11,14,220,1280,-64,6,8,34,3,0,0,1,0,0,0
+10,15,New users,1280,-45,35,11,40,3,0,0,-1,0,0,0
+1,16,18,5,4,0,0,22,0,0,0,-1--1--1,,3|(1148,-233)|(1148,-233)|(1085,-233)|
+1,17,18,11,100,0,0,22,0,0,0,-1--1--1,,1|(1489,-233)|
+11,18,748,1268,-233,6,8,34,3,0,0,1,0,0,0
+10,19,Loss of users,1268,-214,42,11,40,3,0,0,-1,0,0,0
+10,20,Internet penetration,942,104,36,19,8,3,0,0,0,0,0,0
+1,21,20,10,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(929,27)|
+10,22,Adoption from advertising,1426,273,47,19,8,3,0,0,0,0,0,0
+10,23,Adoption from word of mouth,1263,102,47,19,8,3,0,0,0,0,0,0
+10,24,"Adoption fraction (of users)",1183,26,56,19,8,3,0,0,0,0,0,0
+10,25,"Contact rate (of users)",1163,154,43,26,8,131,0,0,0,0,0,0
+1,26,23,15,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(1301,12)|
+1,27,22,15,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(1425,97)|
+1,28,5,22,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1233,275)|
+1,29,4,10,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(764,40)|
+10,30,"Marketing & Sales (advertising effectiveness per dollar)",1339,382,65,65,2,131,0,0,0,0,0,0
+1,31,30,22,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(1374,288)|
+10,32,Potential advertisers,1910,-360,40,20,3,3,0,0,0,0,0,0
+10,33,Advertisers,2252,-357,40,20,3,3,0,0,0,0,0,0
+12,34,48,1727,-357,10,8,0,3,0,0,-1,0,0,0
+1,35,37,32,4,0,0,22,0,0,0,-1--1--1,,1|(1839,-357)|
+1,36,37,34,100,0,0,22,0,0,0,-1--1--1,,1|(1767,-357)|
+11,37,48,1803,-357,6,8,34,3,0,0,1,0,0,0
+10,38,Change in number of business users,1803,-321,66,19,40,131,0,0,-1,0,0,0
+1,39,41,33,4,0,0,22,0,0,0,-1--1--1,,1|(2156,-358)|
+1,40,41,32,100,0,0,22,0,0,0,-1--1--1,,1|(2019,-358)|
+11,41,1404,2094,-358,6,8,34,3,0,0,1,0,0,0
+10,42,New advertisers,2094,-339,52,11,40,3,0,0,-1,0,0,0
+1,43,11,19,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(1420,-162)|
+10,44,Birth rate,693,405,30,11,8,3,0,0,0,0,0,0
+1,45,44,4,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(677,354)|
+1,46,19,38,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1679,-318)|
+10,47,Fraction business users,1792,-461,55,19,8,3,0,0,0,0,0,0
+1,48,47,37,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1817,-397)|
+10,49,Adoption from advertising effectiveness,2270,-120,76,19,8,3,0,0,0,0,0,0
+10,50,Adoption from number of Facebook users,1803,-99,73,19,8,3,0,0,0,0,0,0
+1,51,11,50,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1750,-76)|
+1,52,32,50,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1811,-153)|
+1,53,50,259,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2007,-102)|
+10,54,"Industry CTR (impact of technology on social media)",2054,45,65,65,6,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+1,55,32,49,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(2077,-55)|
+10,56,Total advertising revenue,2311,446,53,19,8,3,0,0,0,0,0,0
+10,57,"Cost per click (CPC)",2404,178,45,19,8,3,0,0,0,0,0,0
+10,58,Total number of clicks,2146,308,51,19,8,131,0,0,0,0,0,0
+1,59,58,56,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(2226,379)|
+1,60,57,56,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2402,278)|
+10,61,"Algorithms (average CTR)",1989,255,60,25,3,131,0,0,0,0,0,0
+10,62,"Total impressions (advertisements viewed)",2051,150,77,19,8,3,0,0,0,0,0,0
+10,63,Effect of impressions vs advertisers on price,2540,373,75,19,8,3,0,0,0,0,0,0
+1,64,63,57,1,0,0,0,3,64,0,0-0-0,|12||0-0-0,1|(2508,304)|
+10,65,Impressions vs advertisers,2367,-22,47,19,8,3,0,0,0,0,0,0
+1,66,33,65,1,0,45,0,3,64,0,0-0-0,|12||0-0-0,1|(2347,-261)|
+1,67,62,65,1,0,43,0,3,64,0,0-0-0,|12||0-0-0,1|(2234,118)|
+1,68,65,57,1,0,0,0,3,64,0,0-0-0,|12||0-0-0,1|(2414,91)|
+10,69,Total payments revenue,1741,311,51,25,8,131,0,0,0,0,0,0
+10,70,Average spend per user,1520,192,48,19,8,3,0,0,0,0,0,0
+10,71,Fraction of transaction received by Facebook,1621,131,72,19,8,3,0,0,0,0,0,0
+1,72,70,69,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1659,236)|
+1,73,71,69,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1706,214)|
+10,74,Cash,1828,522,40,20,3,3,0,0,0,0,0,0
+12,75,48,2047,516,10,8,0,3,0,0,-1,0,0,0
+1,76,78,74,4,0,0,22,0,0,0,-1--1--1,,1|(1907,516)|
+1,77,78,75,100,0,0,22,0,0,0,-1--1--1,,1|(1997,516)|
+11,78,48,1952,516,6,8,34,3,0,0,1,0,0,0
+10,79,Revenues,1952,535,31,11,40,3,0,0,-1,0,0,0
+12,80,48,1625,523,10,8,0,3,0,0,-1,0,0,0
+1,81,83,80,4,0,0,22,0,0,0,-1--1--1,,1|(1670,523)|
+1,82,83,74,100,0,0,22,0,0,0,-1--1--1,,1|(1752,523)|
+11,83,48,1711,523,6,8,34,3,0,0,1,0,0,0
+10,84,Expenses,1711,542,31,11,40,3,0,0,-1,0,0,0
+1,85,56,78,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2011,487)|
+1,86,69,78,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1943,423)|
+10,87,Marketing expenses,1236,644,33,19,8,3,0,0,0,0,0,0
+1,88,87,84,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1527,646)|
+1,89,49,259,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2209,-141)|
+10,90,Preference for private vs public social media platforms,1453,-382,71,71,6,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+10,91,"Number of platforms (competition for users)",1156,-160,55,55,6,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+1,92,94,32,4,0,0,22,0,0,0,-1--1--1,,3|(1912,-515)|(1912,-517)|(1912,-448)|
+1,93,94,33,100,0,0,22,0,0,0,-1--1--1,,1|(2252,-515)|
+11,94,812,2095,-515,6,8,34,3,0,0,1,0,0,0
+10,95,Loss of business users,2095,-488,53,19,40,3,0,0,-1,0,0,0
+10,96,"Other expenses (administrative, taxes etc.)",1977,712,58,32,8,131,0,0,0,0,0,0
+1,97,96,84,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1772,671)|
+10,98,Impressions per user per year,2262,231,51,19,8,3,0,0,0,0,0,0
+1,99,11,62,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1940,96)|
+1,100,98,62,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2117,193)|
+1,101,62,58,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2099,255)|
+1,102,61,58,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2085,299)|
+10,103,"Marketing expenses (fraction of revenues)",1249,798,68,19,8,3,0,0,0,0,0,0
+1,104,103,87,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1248,689)|
+10,105,"Other expenses (fraction of revenues)",1880,781,68,19,8,3,0,0,0,0,0,0
+1,106,79,96,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1992,634)|
+1,107,105,96,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1957,738)|
+12,108,48,1070,241,10,8,0,3,0,0,-1,0,0,0
+1,109,110,108,4,0,0,22,0,0,0,-1--1--1,,1|(1027,241)|
+11,110,48,989,241,6,8,34,3,0,0,1,0,0,0
+10,111,Deaths,989,260,23,11,40,3,0,0,-1,0,0,0
+10,112,Life expectancy,942,353,49,49,6,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+1,113,112,111,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(989,302)|
+10,114,Effect of crowding on deaths lookup,1120,377,69,19,8,3,0,0,0,0,0,0
+10,115,Carrying capacity,987,519,55,11,8,3,0,0,0,0,0,0
+1,116,114,111,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1022,263)|
+10,117,Crowding,970,430,34,9,8,131,0,0,0,0,0,0
+1,118,117,117,1,0,0,0,0,64,0,-1--1--1,,1|(970,430)|
+1,119,115,117,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(966,454)|
+1,120,117,111,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1037,306)|
+1,121,110,10,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1000,43)|
+10,122,Effect of number of platforms,1315,-139,55,24,8,131,0,0,0,0,0,0
+1,123,122,14,1,0,0,0,3,64,0,0-0-0,|12||0-0-0,1|(1290,-82)|
+1,124,91,14,1,0,45,0,3,64,0,0-0-0,|12||0-0-0,1|(1241,-85)|
+1,125,90,18,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1354,-274)|
+10,126,User leaving rate,1306,-337,53,11,8,131,0,0,0,0,0,0
+10,127,"Popularity of social media (social media penetration)",1185,-410,58,58,6,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+1,128,126,18,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1295,-274)|
+1,129,127,18,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1212,-280)|
+10,130,Advertiser leaving rate,2028,-409,41,19,8,3,0,0,0,0,0,0
+1,131,33,95,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2167,-458)|
+1,132,130,95,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2037,-459)|
+10,133,Effect of number of users on adoption,1681,-201,61,19,8,3,0,0,0,0,0,0
+1,134,133,50,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1759,-176)|
+10,135,Total population,858,246,40,20,3,3,0,0,0,0,0,0
+1,136,3,135,4,0,0,22,0,0,0,-1--1--1,,1|(773,238)|
+1,137,110,135,100,0,0,22,0,0,0,-1--1--1,,1|(940,241)|
+1,138,135,4,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(806,292)|
+1,139,135,111,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(902,294)|
+1,140,135,117,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(860,369)|
+1,141,24,23,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1218,68)|
+1,142,25,23,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1204,121)|
+1,143,5,23,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1118,26)|
+1,144,11,23,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1439,51)|
+10,145,Relative CTR,2239,-33,43,11,8,3,0,0,0,0,0,0
+1,146,54,145,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(2188,22)|
+10,147,Effect of relative CTR on adoption,2268,-230,70,19,8,3,0,0,0,0,0,0
+1,148,145,49,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2264,-62)|
+1,149,147,49,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2278,-156)|
+10,150,Trust to social media,1039,679,44,44,6,131,0,2,0,0,0,0,-1--1--1,0-0-0,|12||0-0-255
+10,151,Technology,2328,1136,40,20,3,3,0,0,0,0,0,0
+12,152,48,2101,1138,10,8,0,3,0,0,-1,0,0,0
+1,153,155,151,4,0,0,22,0,0,0,-1--1--1,,1|(2241,1138)|
+1,154,155,152,100,0,0,22,0,0,0,-1--1--1,,1|(2147,1138)|
+11,155,48,2189,1138,6,8,34,3,0,0,1,0,0,0
+10,156,"New/improved technology",2189,1165,48,19,40,3,0,0,-1,0,0,0
+12,157,48,2517,1136,10,8,0,3,0,0,-1,0,0,0
+1,158,160,157,4,0,0,22,0,0,0,-1--1--1,,1|(2470,1140)|
+1,159,160,151,100,0,0,22,0,0,0,-1--1--1,,1|(2395,1140)|
+11,160,48,2428,1140,6,8,34,3,0,0,1,0,0,0
+10,161,"Depreciation/ obssolesence",2428,1167,43,19,40,131,0,0,-1,0,0,0
+10,162,"Technological change (average lifetime)",2443,1010,68,19,8,3,0,0,0,0,0,0
+1,163,162,160,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(2446,1104)|
+1,164,151,160,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2393,1109)|
+10,165,Technical staff,2202,810,40,20,3,3,0,0,0,0,0,0
+12,166,48,1985,804,10,8,0,3,0,0,-1,0,0,0
+1,167,169,165,4,0,0,22,0,0,0,-1--1--1,,1|(2123,804)|
+1,168,169,166,100,0,0,22,0,0,0,-1--1--1,,1|(2033,804)|
+11,169,48,2078,804,6,8,34,3,0,0,1,0,0,0
+10,170,Net hiring rate,2078,834,45,11,40,131,0,0,-1,0,0,0
+12,171,48,2377,808,10,8,0,3,0,0,-1,0,0,0
+1,172,174,171,4,0,0,22,0,0,0,-1--1--1,,1|(2338,808)|
+1,173,174,165,100,0,0,22,0,0,0,-1--1--1,,1|(2270,808)|
+11,174,48,2304,808,6,8,34,3,0,0,1,0,0,0
+10,175,Leaving,2304,827,26,11,40,3,0,0,-1,0,0,0
+1,176,165,175,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2284,778)|
+1,177,165,156,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2173,1071)|
+10,178,Productivity of technical staff,2466,889,51,51,2,131,0,0,0,0,0,0
+1,179,178,156,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2252,1056)|
+10,180,Average wage level,1969,854,46,19,8,3,0,0,0,0,0,0
+10,181,Wages to technical staff,1925,922,43,19,8,3,0,0,0,0,0,0
+1,182,180,181,0,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1950,882)|
+1,183,165,181,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2022,934)|
+10,184,Reputation,950,793,40,20,3,3,0,0,0,0,0,0
+12,185,48,794,788,10,8,0,3,0,0,-1,0,0,0
+1,186,188,184,4,0,0,22,0,0,0,-1--1--1,,1|(886,788)|
+1,187,188,185,100,0,0,22,0,0,0,-1--1--1,,1|(827,788)|
+11,188,48,857,788,6,8,34,3,0,0,1,0,0,0
+10,189,Increase in reputation,857,815,35,19,40,3,0,0,-1,0,0,0
+12,190,48,1793,241,10,8,0,3,0,0,-1,0,0,0
+1,191,193,61,4,0,0,22,0,0,0,-1--1--1,,1|(1900,241)|
+1,192,193,190,100,0,0,22,0,0,0,-1--1--1,,1|(1831,241)|
+11,193,48,1866,241,6,8,34,3,0,0,1,0,0,0
+10,194,Increase in CTR,1866,260,52,11,40,3,0,0,-1,0,0,0
+10,195,Effect of marketing on reputation,1387,965,101,11,0,131,0,0,0,0,0,0
+10,196,"Public Relatins (change in reputation from marketing)",1146,952,70,70,2,131,0,0,0,0,0,0
+1,197,195,196,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1221,927)|
+1,198,196,189,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(964,897)|
+10,199,"R&D expenses (fraction of revenues)",1737,1048,68,19,8,131,0,0,0,0,0,0
+10,200,"R&D expenses",1822,959,48,11,8,3,0,0,0,0,0,0
+1,201,200,156,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2090,1163)|
+1,202,87,22,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1433,328)|
+10,203,Effect of reputation on loss of users,1040,-268,61,19,8,3,0,0,0,0,0,0
+1,204,203,18,0,0,0,0,3,64,0,0-0-0,|12||0-0-0,1|(1174,-247)|
+10,205,"Expenses of running platform (new data centres, infrastructure etc.)",1587,462,92,28,8,131,0,0,0,0,0,0
+1,206,205,83,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1676,489)|
+10,207,Effect of number of staff on productivity,2526,767,63,19,8,3,0,0,0,0,0,0
+1,208,207,178,1,0,0,0,3,64,0,0-0-0,|12||0-0-0,1|(2514,799)|
+1,209,165,178,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(2314,869)|
+10,210,Average tenure,2348,722,48,11,8,3,0,0,0,0,0,0
+1,211,210,174,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(2351,782)|
+1,212,103,196,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1218,851)|
+10,213,Tehnical staff hiring budget,2169,652,55,26,8,131,0,0,0,0,0,0
+10,214,"Technical staff hiring budget (fraction of revenues)",2363,611,65,28,8,3,0,0,0,0,0,0
+1,215,79,213,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2123,591)|
+1,216,214,213,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2267,612)|
+1,217,180,170,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2056,864)|
+1,218,199,200,0,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1778,1004)|
+1,219,213,169,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2138,731)|
+10,220,Protecting user privacy,1612,1203,52,52,2,131,0,0,0,0,0,0
+10,221,Effect of technology on reputation,1532,1058,64,19,8,3,0,0,0,0,0,0
+1,222,151,220,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1761,1242)|
+1,223,221,220,1,0,0,0,3,64,0,0-0-0,|12||0-0-0,1|(1552,1119)|
+12,224,48,1098,792,10,8,0,3,0,0,-1,0,0,0
+1,225,227,224,4,0,0,22,0,0,0,-1--1--1,,1|(1066,792)|
+1,226,227,184,100,0,0,22,0,0,0,-1--1--1,,1|(1011,792)|
+11,227,48,1039,792,6,8,34,3,0,0,1,0,0,0
+10,228,Decrease in reputation,1039,819,38,19,40,3,0,0,-1,0,0,0
+1,229,200,84,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1676,611)|
+1,230,181,84,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1708,616)|
+1,231,220,189,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(905,901)|
+1,232,150,228,0,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1039,754)|
+1,233,184,228,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1007,764)|
+10,234,Technical capabilities,1804,143,51,51,2,131,0,0,0,0,0,0
+1,235,234,194,0,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1840,212)|
+10,236,Adoption from price,2013,-290,47,19,8,3,0,0,0,0,0,0
+1,237,32,236,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1984,-299)|
+1,238,236,259,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2054,-261)|
+10,239,"Cost per click (CPC)",1990,-188,50,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,240,239,236,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1986,-247)|
+10,241,Revenues,1603,903,40,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,242,241,200,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1736,949)|
+1,243,241,87,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1274,690)|
+10,244,Technical staff,1920,198,54,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,245,244,194,0,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1897,223)|
+10,246,Expenses of running platform,1465,583,55,20,8,131,0,0,0,0,0,0
+1,247,246,205,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1518,543)|
+10,248,Technology,1490,399,46,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+10,249,Reputation,1094,-337,44,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,250,249,18,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1197,-262)|
+10,251,"Algorithms (average CTR)",2219,51,53,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,252,251,145,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2240,6)|
+10,253,Total population,1288,187,39,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,254,253,23,1,0,45,0,3,0,0,0-0-0,|12||0-0-0,1|(1290,137)|
+10,255,New users,1640,-437,44,11,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,256,255,37,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1775,-395)|
+10,257,Monthly active Facebook users,1546,339,56,19,8,2,0,3,-1,0,0,0,128-128-128,0-0-0,|12||128-128-128
+1,258,257,69,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1594,300)|
+10,259,Advertising services,2121,-197,51,51,2,131,0,0,0,0,0,0
+1,260,259,42,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(2122,-285)|
+1,261,248,205,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1539,410)|
+1,262,257,205,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1619,377)|
+12,263,48,1824,368,10,8,0,3,0,0,-1,0,0,0
+1,264,266,263,4,0,0,22,0,0,0,-1--1--1,,1|(1823,408)|
+1,265,266,74,100,0,0,22,0,0,0,-1--1--1,,1|(1823,477)|
+11,266,48,1823,447,8,6,33,3,0,0,4,0,0,0
+10,267,"Investment in other products/services",1877,447,46,35,40,131,0,0,-1,0,0,0
+1,268,84,267,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1769,467)|
+1,269,78,267,1,0,43,0,3,0,0,0-0-0,|12||0-0-0,1|(1924,470)|
+///---\\\
+:L<%^E!@
+1:Current.vdf
+9:Current
+23:0
+15:0,0,0,0,0,0
+19:40,0
+27:0,
+34:0,
+4:Time
+5:Cash
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:0
+41:0
+42:1
+24:2016
+25:2029
+26:2029

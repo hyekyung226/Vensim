@@ -1,0 +1,134 @@
+{UTF-8}
+Coordination Between Competitors  = A FUNCTION OF( )
+	~	
+	~		|
+
+Customer Preferences  = A FUNCTION OF( "Probability of Cyber-Attack",Trust to Social Media\
+		)
+	~	
+	~		|
+
+Government Censorship  = A FUNCTION OF( "Probability of Cyber-Attack")
+	~	
+	~		|
+
+Impact of New Technology on Social Media  = A FUNCTION OF( )
+	~	
+	~		|
+
+Life Expectancy  = A FUNCTION OF( )
+	~	
+	~		|
+
+Popularity of social media  = A FUNCTION OF( "Working Hours (Lifestyle)",Trust to Social Media\
+		)
+	~	
+	~		|
+
+Privacy Regulation  = A FUNCTION OF( Government Censorship)
+	~	
+	~		|
+
+"Probability of Cyber-Attack"  = A FUNCTION OF( )
+	~	
+	~		|
+
+"State of World Economy (Global Unemployment Rate)"  = A FUNCTION OF( )
+	~	
+	~		|
+
+The Number of Online Advertising Competitors  = A FUNCTION OF( Impact of New Technology on Social Media\
+		,The Number of Popular Social Media Platforms,Trust to Social Media)
+	~	
+	~		|
+
+The Number of Popular Social Media Platforms  = A FUNCTION OF( Coordination Between Competitors\
+		)
+	~	
+	~		|
+
+Trust to Social Media  = A FUNCTION OF( )
+	~	
+	~		|
+
+"Working Hours (Lifestyle)"  = A FUNCTION OF( Life Expectancy,"State of World Economy (Global Unemployment Rate)"\
+		)
+	~	
+	~		|
+
+********************************************************
+	.Control
+********************************************************~
+		Simulation Control Parameters
+	|
+
+FINAL TIME  = 100
+	~	Month
+	~	The final time for the simulation.
+	|
+
+INITIAL TIME  = 0
+	~	Month
+	~	The initial time for the simulation.
+	|
+
+SAVEPER  = 
+        TIME STEP 
+	~	Month [0,?]
+	~	The frequency with which output is stored.
+	|
+
+TIME STEP  = 1
+	~	Month [0,?]
+	~	The time step for the simulation.
+	|
+
+\\\---/// Sketch information - do not modify anything except names
+V300  Do not put anything below this section - it will be ignored
+*View 1
+$192-192-192,0,Times New Roman|12||0-0-0|0-0-0|0-0-255|-1--1--1|-1--1--1|96,96,100,0
+10,1,Popularity of social media,711,280,41,19,8,3,0,0,0,0,0,0
+10,2,Customer Preferences,357,117,38,19,8,3,0,0,0,0,0,0
+10,3,Government Censorship,359,278,40,19,8,3,0,0,0,0,0,0
+10,4,Trust to Social Media,709,117,47,19,8,3,0,0,0,0,0,0
+10,5,"Probability of Cyber-Attack",357,198,45,19,8,3,0,0,0,0,0,0
+10,6,The Number of Online Advertising Competitors,889,118,78,19,8,3,0,0,0,0,0,0
+10,7,The Number of Popular Social Media Platforms,888,275,76,19,8,3,0,0,0,0,0,0
+10,8,Coordination Between Competitors,1061,269,70,19,8,3,0,0,0,0,0,0
+10,9,"State of World Economy (Global Unemployment Rate)",551,429,80,28,8,3,0,0,0,0,0,0
+10,10,Impact of New Technology on Social Media,1063,116,69,28,8,3,0,0,0,0,0,0
+10,11,Life Expectancy,848,427,51,11,8,3,0,0,0,0,0,0
+10,12,Privacy Regulation,539,278,58,11,8,3,0,0,0,0,0,0
+10,13,"Working Hours (Lifestyle)",712,432,50,19,8,3,0,0,0,0,0,0
+1,15,9,13,0,0,0,0,0,64,0,-1--1--1,,1|(639,430)|
+1,16,13,1,0,0,0,0,0,64,0,-1--1--1,,1|(711,362)|
+1,18,4,1,0,0,0,0,0,64,0,-1--1--1,,1|(709,191)|
+1,20,7,6,0,0,0,0,0,64,0,-1--1--1,,1|(888,203)|
+1,27,11,13,0,0,0,0,0,64,0,-1--1--1,,1|(786,428)|
+1,30,8,7,0,0,0,0,0,64,0,-1--1--1,,1|(984,271)|
+1,33,10,6,0,0,0,0,0,64,0,-1--1--1,,1|(987,116)|
+1,34,5,3,0,0,0,0,0,64,0,-1--1--1,,1|(357,231)|
+1,35,3,12,0,0,0,0,0,64,0,-1--1--1,,1|(433,278)|
+1,36,5,2,0,0,0,0,0,64,0,-1--1--1,,1|(357,164)|
+1,37,4,2,0,0,0,0,0,64,0,-1--1--1,,1|(535,117)|
+1,38,4,6,0,0,0,0,0,64,0,-1--1--1,,1|(776,117)|
+///---\\\
+:L<%^E!@
+9:Current
+23:0
+15:0,0,0,0,0,0
+19:100,0
+27:0,
+34:0,
+5:Impact of New Technology on Social Media
+35:Date
+36:YYYY-MM-DD
+37:2000
+38:1
+39:1
+40:2
+41:0
+42:1
+24:0
+25:0
+26:0
